@@ -33,6 +33,7 @@
 #include <strings.h>
 
 #include <libzfs.h>
+#include <sys/sysmacros.h>
 
 #include "zpool_util.h"
 
