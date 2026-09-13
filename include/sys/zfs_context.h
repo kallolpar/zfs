@@ -131,6 +131,18 @@
 #define	noinline	__attribute__((noinline))
 
 /*
+ * Alignment
+ *
+ * The kernel supplies ____cacheline_aligned via <linux/cache.h>.  Userland
+ * has no such definition, so a trailing "____cacheline_aligned" on a struct
+ * definition is parsed as a tentative definition of a global variable of
+ * that struct type rather than as an alignment attribute.  Define it here
+ * so both builds align the type, and neither emits a stray global.
+ */
+#define	CACHE_LINE_SIZE		64
+#define	____cacheline_aligned	__attribute__((aligned(CACHE_LINE_SIZE)))
+
+/*
  * Debugging
  */
 

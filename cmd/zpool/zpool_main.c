@@ -55,6 +55,8 @@
 #include <libzfs.h>
 
 #include "zpool_util.h"
+
+libzfs_handle_t *g_zfs;
 #include "zfs_comutil.h"
 #include "zfeature_common.h"
 
